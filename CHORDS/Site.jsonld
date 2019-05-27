@@ -1,0 +1,28 @@
+{
+  "@context": {
+    "@vocab": "http://schema.org/"
+  },
+  "@id": "http://portal.chordsrt.com/sites/2",
+  "@type": "Place",
+  "name": "NCAR Foothills Lab",
+  "description": "On roof of Building 1, 3450 Mitchell Lane, Boulder, CO.",
+  "url": "http://portal.chordsrt.com/sites/2",
+  "subjectOf": [
+    { "@id": "http://portal.chordsrt.com/instruments/1" }
+  ],
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "40.037399292",
+    "longitude": "-105.240997314",
+    "elevation": "1625.0"
+  },
+  "additionalProperty": {
+    "@type": "PropertyValue",
+    "name": "Site Type",
+    "value": {
+      "@id": "https://www.wikidata.org/wiki/Q3230",
+      "@type": "StructuredValue",
+      "name": "Atmosphere"
+    }
+  }
+}
