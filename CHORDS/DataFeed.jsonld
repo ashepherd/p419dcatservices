@@ -44,8 +44,9 @@
     "additionalType": "https://www.w3.org/TR/vocab-ssn/#SensingDevice",
     "name": "Vaisala WXT510",
     "subjectOf": {
-      "@type": "DigitalDocument",
       "@id": "http://portal.chordsrt.com/instruments/1.sensorml",
+      "@type": "DigitalDocument",
+      "additionalType": "http://www.wikidata.org/entity/Q7451082",
       "name": "SensorML for Vaisala WXT510 at NCAR Foothills Lab",
       "url": "http://portal.chordsrt.com/instruments/1.sensorml"
     }
