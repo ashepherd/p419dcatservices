@@ -51,7 +51,7 @@
       "name": "National Science Foundation",
       "url": "http://www.nsf.gov",
       "identifier": {
-        "@type": ["PropertyValue"],
+        "@type": "PropertyValue",
         "additionalType": "http://www.wikidata.org/entity/Q25670",
         "propertyID": "DOI",
         "value": "10.13039/100000001",
