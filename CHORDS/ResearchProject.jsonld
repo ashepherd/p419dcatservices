@@ -1,5 +1,7 @@
 {
-  "@context": "http://schema.org/",
+  "@context": {
+    "@vocab": "http://schema.org/"
+  },
   "@id": "http://portal.chordsrt.com/",
   "@type": "ResearchProject",
   "name": "NCAR EarthCube CHORDS",
