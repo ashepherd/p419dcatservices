@@ -1,0 +1,20 @@
+{
+  "@context": {
+    "@vocab": "http://schema.org/"
+  },
+  "@type": "DataCatalog",
+  "@id": "http://portal.chordsrt.com/instruments",
+  "name": "Instruments",
+  "url": "http://portal.chordsrt.com/instruments",
+  "description": "The instruments deployed for NCAR EarthCube CHORDS",
+  "dataset": [
+    {
+      "@id": "http://portal.chordsrt.com/instruments/1",
+      "@type": "Dataset",
+      "name": "FL Wx Station",
+      "ural": "http://portal.chordsrt.com/instruments/1",
+      "identifier": "1",
+      "contentLocation": { "@id": "http://portal.chordsrt.com/sites/2" }
+    }
+  ]
+}
