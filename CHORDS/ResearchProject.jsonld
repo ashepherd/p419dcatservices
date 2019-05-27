@@ -66,6 +66,14 @@
       {
         "@type": "DataCatalog",
         "@id": "http://portal.chordsrt.com/instruments"
+      },
+      {
+        "@id": "http://portal.chordsrt.com/api/v1/data",
+        "@type": "WebAPI",
+        "serviceType": "http://www.wikidata.org/entity/Q42722531",
+        "url": "http://portal.chordsrt.com/api/v1/data",
+        "name": "Download data from NCAR EarthCube CHORDS",
+        "documentation": "http://portal.chordsrt.com/about/data_urls"
       }
     ]
   }
