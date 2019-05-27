@@ -1,0 +1,244 @@
+{
+  "@context": {
+    "@vocab": "http://schema.org/"
+  },
+  "@id": "http://portal.chordsrt.com/instruments/1",
+  "@type": "DataFeed",
+  "name": "FL Wx Station",
+  "description": " Vaisala WXT510 weather station. See http://www.eol.ucar.edu/weather/weather_fl/station.html.",
+  "url": "http://portal.chordsrt.com/instruments/1",
+  "identifier": "2",
+  "isAccessibleForFree": true,
+  "provider": {
+  	"@type": "ResearchProject",
+    "@id": "http://portal.chordsrt.com/",
+    "makesOffer": {
+      "@type": "Offer",
+      "itemOffered": [
+        {
+      	  "@id": "http://portal.chordsrt.com/api/v1/data/1.csv",
+          "@type": "WebAPI",
+          "serviceType": "http://www.wikidata.org/entity/Q42722531",
+          "url": "http://portal.chordsrt.com/api/v1/data/1.csv",
+          "name": "REST API for CSV Data from FL Wx Station",
+          "documentation": "http://portal.chordsrt.com/about/data_urls?instrument_id=1",
+          "subjectOf": { "@id": "http://portal.chordsrt.com/instruments/1" }
+        },
+        {
+      	  "@id": "http://portal.chordsrt.com/api/v1/data/1.geojson",
+          "@type": "WebAPI",
+          "serviceType": "http://www.wikidata.org/entity/Q42722531",
+          "url": "http://portal.chordsrt.com/api/v1/data/1.geojson",
+          "name": "REST API for GeoJSON Data from FL Wx Station",
+          "documentation": "http://portal.chordsrt.com/about/data_urls?instrument_id=1",
+          "subjectOf": { "@id": "http://portal.chordsrt.com/instruments/1" }
+        }
+      ]
+    }
+  },
+  "includedInDataCatalog": { "@id": "http://portal.chordsrt.com/instruments" },
+  "temporalCoverage": "2017-05-29 00:01:36/..",
+  "spatialCoverage": { "@id": "http://portal.chordsrt.com/sites/2" },
+  "about": {
+    "@type": "IndividualProduct",
+    "additionalType": "https://www.w3.org/TR/vocab-ssn/#SensingDevice",
+    "name": "Vaisala WXT510",
+    "subjectOf": {
+      "@type": "DigitalDocument",
+      "@id": "http://portal.chordsrt.com/instruments/1.sensorml",
+      "name": "SensorML for Vaisala WXT510 at NCAR Foothills Lab",
+      "url": "http://portal.chordsrt.com/instruments/1.sensorml"
+    }
+  },
+  "measurementTechnique": "Vaisala WXT510",
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Wind Direction",
+      "alternateName": "wdir",
+      "unitCode": "deg",
+      "unitText": "degree",
+      "identifier": {
+        "@id": "http://sensorml.com/ont/swe/property/WindDirectionAngle",
+        "@type": ["PropertyValue", "DefinedTerm"],
+        "name": "Wind Direction Angle"
+      }
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Wind Speed",
+      "alternateName": "wspd",
+      "unitCode": "m/s",
+      "unitText": "meters per second",
+      "identifier": {
+        "@id": "http://sensorml.com/ont/swe/property/WindSpeed",
+        "@type": ["PropertyValue", "DefinedTerm"],
+        "name": "Wind Speed"
+      }
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Wind Max",
+      "alternateName": "wmax",
+      "unitCode": "m/s",
+      "unitText": "meters per second",
+      "identifier": { "@id": "http://sensorml.com/ont/swe/property/WindSpeed" }
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Temperature",
+      "alternateName": "tdry",
+      "unitCode": "degC",
+      "unitText": "degree celsius ",
+      "identifier": {
+        "@id": "http://sensorml.com/ont/swe/property/Temperature",
+        "@type": ["PropertyValue", "DefinedTerm"],
+        "name": "Temperature"
+      }
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Humidity",
+      "alternateName": "rh",
+      "unitCode": "%",
+      "unitText": "percent",
+      "identifier": {
+        "@id": "http://sensorml.com/ont/swe/property/HumidityValue",
+        "@type": ["PropertyValue", "DefinedTerm"],
+        "name": "Humidity Value"
+      }
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Pressure",
+      "alternateName": "pres",
+      "unitCode": "mbar",
+      "unitText": "millibar",
+      "identifier": {
+        "@id": "http://sensorml.com/ont/swe/property/AirPressureValue",
+        "@type": ["PropertyValue", "DefinedTerm"],
+        "name": "Air Pressure Value"
+      }
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Rain Total",
+      "alternateName": "raintot",
+      "unitCode": "mm",
+      "unitText": "millimeter",
+      "identifier": {
+        "@id": "http://sensorml.com/ont/swe/property/Precipitation",
+        "@type": ["PropertyValue", "DefinedTerm"],
+        "name": "Precipitation"
+      }
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Battery",
+      "alternateName": "batv",
+      "unitCode": "V",
+      "unitText": "volts",
+      "identifier": { "@id": "http://sensorml.com/ont/swe/property/Temperature" }
+    }
+  ],
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "name": "GeoJSON",
+      "contentUrl": "http://portal.chordsrt.com/api/v1/data/1.geojson",
+      "encodingFormat": "application/geo+json"
+    },
+    {
+      "@type": "DataDownload",
+      "name": "GeoCSV",
+      "contentUrl": "http://portal.chordsrt.com/api/v1/data/1.csv",
+      "encodingFormat": "text/csv"
+    }
+  ],
+  "potentialAction": [
+    {
+      "@type": "SearchAction",
+      "name": "Search for the last data point",
+      "subjectOf": [
+        { "@id": "http://portal.chordsrt.com/api/v1/data/1.csv" },
+        { "@id": "http://portal.chordsrt.com/api/v1/data/1.geojson" }
+      ],
+      "result": {
+        "@type": "DataDownload",
+        "encodingFormat": ["text/csv", "application/geo+json"]
+      },
+      "target": {
+        "@type": "EntryPoint",
+        "contentType": ["text/csv", "application/geo+json"],
+        "urlTemplate": "http://portal.chordsrt.com/api/v1/data/1.{encoding}?last",
+        "description": "Get data since the most recent measurement time stamp.",
+        "httpMethod": "GET"
+      },
+      "query-input": [
+        {
+          "@id": "http://portal.chordsrt.com/api/v1/data#encoding",
+          "@type": "PropertyValueSpecification",
+          "valueName": "encoding",
+          "description": "The encoding format of the data",
+          "stepValue": 1,
+          "valueRequired": true,
+          "valuePattern": "(geosjon|csv)"
+        }
+      ],
+      "object": {
+        "@type": "DataFeed",
+        "encodingFormat-input": { "@id": "http://portal.chordsrt.com/api/v1/data#encoding" }
+      }
+    },
+    {
+      "@type": "SearchAction",
+      "name": "Search for data between certain dates",
+      "subjectOf": [
+        { "@id": "http://portal.chordsrt.com/api/v1/data/1.csv" },
+        { "@id": "http://portal.chordsrt.com/api/v1/data/1.geojson" }
+      ],
+      "result": {
+        "@type": "DataDownload",
+        "encodingFormat": ["text/csv", "application/geo+json"]
+      },
+      "target": {
+        "@type": "EntryPoint",
+        "contentType": ["text/csv", "application/geo+json"],
+        "urlTemplate": "http://portal.chordsrt.com/api/v1/data/1.{encoding}?start={start}&end={end}",
+        "description": "Get data bounded by an optional start and/or end date",
+        "httpMethod": "GET"
+      },
+      "query-input": [
+        {
+          "@id": "http://portal.chordsrt.com/api/v1/data#encoding"
+        },
+        {
+          "@id": "http://portal.chordsrt.com/api/v1/data#start",
+          "@type": "PropertyValueSpecification",
+          "valueName": "start",
+          "description": "A start time for the returned measurements.",
+          "stepValue": 2,
+          "valueRequired": false,
+          "valuePattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?"
+        },
+        {
+          "@id": "http://portal.chordsrt.com/api/v1/data#end",
+          "@type": "PropertyValueSpecification",
+          "valueName": "end",
+          "description": "An end time for the returned measurements.",
+          "stepValue": 3,
+          "valueRequired": false,
+          "valuePattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?"
+        }
+      ],
+      "object": {
+        "@type": "DataFeed",
+        "encodingFormat-input": { "@id": "http://portal.chordsrt.com/api/v1/data#encoding" },
+        "temporalCoverage-input": [
+          { "@id": "http://portal.chordsrt.com/api/v1/data#start" },
+          { "@id": "http://portal.chordsrt.com/api/v1/data#end" }
+        ]
+      }
+    }
+  ]
+}
