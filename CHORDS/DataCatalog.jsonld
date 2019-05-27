@@ -6,15 +6,44 @@
   "@id": "http://portal.chordsrt.com/instruments",
   "name": "Instruments",
   "url": "http://portal.chordsrt.com/instruments",
-  "description": "The instruments deployed for NCAR EarthCube CHORDS",
+  "description": "The data feeds for instruments deployed for NCAR EarthCube CHORDS",
   "dataset": [
     {
       "@id": "http://portal.chordsrt.com/instruments/1",
-      "@type": "Dataset",
+      "@type": "DataFeed",
       "name": "FL Wx Station",
-      "ural": "http://portal.chordsrt.com/instruments/1",
+      "url": "http://portal.chordsrt.com/instruments/1",
       "identifier": "1",
       "contentLocation": { "@id": "http://portal.chordsrt.com/sites/2" }
+    },
+    {
+      "@id": "http://portal.chordsrt.com/instruments/2",
+      "@type": "DataFeed",
+      "name": "ML Wx Station",
+      "url": "http://portal.chordsrt.com/instruments/2",
+      "identifier": "2",
+      "contentLocation": { "@id": "http://portal.chordsrt.com/sites/3" }
+    },{
+      "@id": "http://portal.chordsrt.com/instruments/3",
+      "@type": "DataFeed",
+      "name": "NWSC Wx Station",
+      "url": "http://portal.chordsrt.com/instruments/3",
+      "identifier": "3",
+      "contentLocation": { "@id": "http://portal.chordsrt.com/sites/4" }
+    },{
+      "@id": "http://portal.chordsrt.com/instruments/5",
+      "@type": "DataFeed",
+      "name": "RAF Wx Station",
+      "url": "http://portal.chordsrt.com/instruments/5",
+      "identifier": "5",
+      "contentLocation": { "@id": "http://portal.chordsrt.com/sites/6" }
+    },{
+      "@id": "http://portal.chordsrt.com/instruments/6",
+      "@type": "DataFeed",
+      "name": "ML Sonic",
+      "url": "http://portal.chordsrt.com/instruments/6",
+      "identifier": "6",
+      "contentLocation": { "@id": "http://portal.chordsrt.com/sites/3" }
     }
   ]
 }
