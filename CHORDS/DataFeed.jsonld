@@ -10,7 +10,7 @@
   "identifier": "2",
   "isAccessibleForFree": true,
   "provider": {
-  	"@type": "ResearchProject",
+    "@type": "ResearchProject",
     "@id": "http://portal.chordsrt.com/",
     "makesOffer": {
       "@type": "Offer",
