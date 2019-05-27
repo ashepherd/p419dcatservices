@@ -31,7 +31,7 @@
           "description": "The encoding format of the data",
           "stepValue": 1,
           "valueRequired": true,
-          "valuePattern": "(geosjon|csv)"
+          "valuePattern": "(geojson|csv)"
         }
       ],
       "object": {
