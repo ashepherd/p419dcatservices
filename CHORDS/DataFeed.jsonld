@@ -176,7 +176,7 @@
       },
       "query-input": [
         {
-          "@id": "http://portal.chordsrt.com/api/v1/data#encoding",
+          "@id": "http://portal.chordsrt.com/about/data_urls#encoding",
           "@type": "PropertyValueSpecification",
           "valueName": "encoding",
           "description": "The encoding format of the data",
@@ -187,7 +187,7 @@
       ],
       "object": {
         "@type": "DataFeed",
-        "encodingFormat-input": { "@id": "http://portal.chordsrt.com/api/v1/data#encoding" }
+        "encodingFormat-input": { "@id": "http://portal.chordsrt.com/about/data_urls#encoding" }
       }
     },
     {
@@ -210,10 +210,10 @@
       },
       "query-input": [
         {
-          "@id": "http://portal.chordsrt.com/api/v1/data#encoding"
+          "@id": "http://portal.chordsrt.com/about/data_urls#encoding"
         },
         {
-          "@id": "http://portal.chordsrt.com/api/v1/data#start",
+          "@id": "http://portal.chordsrt.com/about/data_urls#start",
           "@type": "PropertyValueSpecification",
           "valueName": "start",
           "description": "A start time for the returned measurements.",
@@ -222,7 +222,7 @@
           "valuePattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?"
         },
         {
-          "@id": "http://portal.chordsrt.com/api/v1/data#end",
+          "@id": "http://portal.chordsrt.com/about/data_urls#end",
           "@type": "PropertyValueSpecification",
           "valueName": "end",
           "description": "An end time for the returned measurements.",
@@ -233,10 +233,10 @@
       ],
       "object": {
         "@type": "DataFeed",
-        "encodingFormat-input": { "@id": "http://portal.chordsrt.com/api/v1/data#encoding" },
+        "encodingFormat-input": { "@id": "http://portal.chordsrt.com/about/data_urls#encoding" },
         "temporalCoverage-input": [
-          { "@id": "http://portal.chordsrt.com/api/v1/data#start" },
-          { "@id": "http://portal.chordsrt.com/api/v1/data#end" }
+          { "@id": "http://portal.chordsrt.com/about/data_urls#start" },
+          { "@id": "http://portal.chordsrt.com/about/data_urls#end" }
         ]
       }
     }
