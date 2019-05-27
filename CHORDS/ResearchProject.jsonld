@@ -23,7 +23,12 @@
   "sponsor": {
     "@type": "Organization",
     "name": "National Center for Atmospheric Research",
-    "url": "https://ncar.ucar.edu/"
+    "url": "https://ncar.ucar.edu/",
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "University Corporation for Atmospheric Research",
+      "url": "https://www.ucar.edu/"
+    }
   },
   "logo": {
   	"@type": "ImageObject",
@@ -35,11 +40,6 @@
     "email": "chords@ucar.edu",
     "url": "https://earthcubeprojects-chords.github.io/chords-docs/",
     "contactType": "customer support"
-  },
-  "parentOrganization": {
-    "@type": "Organization",
-    "name": "University Corporation for Atmospheric Research",
-    "url": "https://www.ucar.edu/"
   },
   "funder": {
     "@type": "Organization",
