@@ -1,0 +1,70 @@
+{
+  "@context": "http://schema.org/",
+  "@id": "http://portal.chordsrt.com/",
+  "@type": "ResearchProject",
+  "name": "NCAR EarthCube CHORDS",
+  "url": "http://portal.chordsrt.com/",
+  "description": "A CHORDS Portal for NCAR Sites",
+  "areaServed": {
+    "@type": "GeoShape",
+    "name": "Bounding Box of all deployed instruments",
+    "box": "-105.369873,39.935013 -104.869995,41.207589"
+  },
+  "knowsAbout": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "http://www.wikidata.org/entity/Q39045282",
+      "name": "Streaming Data"
+    }
+  ],
+  "email": "chords@ucar.edu",
+  "sponsor": {
+    "@type": "Organization",
+    "name": "National Center for Atmospheric Research",
+    "url": "https://ncar.ucar.edu/"
+  },
+  "logo": {
+  	"@type": "ImageObject",
+    "url": "http://portal.chordsrt.com/assets/CHORDS_full_50-6448d0bdd06d36c411e9f5fe1356fd4ed0b6b55408d10ad9cffba040aa6b4824.png"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "name": "Support",
+    "email": "chords@ucar.edu",
+    "url": "https://earthcubeprojects-chords.github.io/chords-docs/",
+    "contactType": "customer support"
+  },
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "University Corporation for Atmospheric Research",
+    "url": "https://www.ucar.edu/"
+  },
+  "funder": {
+    "@type": "Organization",
+    "name": "EarthCube",
+    "url": "https://earthcube.org",
+    "parentOrganization": {
+      "@type": "FundingAgency",
+      "@id": "https://doi.org/10.13039/100000001",
+      "name": "National Science Foundation",
+      "url": "http://www.nsf.gov",
+      "identifier": {
+        "@type": ["PropertyValue"],
+        "additionalType": "http://www.wikidata.org/entity/Q25670",
+        "propertyID": "DOI",
+        "value": "10.13039/100000001",
+        "url": "https://doi.org/10.13039/100000001"
+      }
+    }
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "NCAR EarthCube CHORDS Datasets & Services",
+    "itemListElement": [
+      {
+        "@type": "DataCatalog",
+        "@id": "http://portal.chordsrt.com/instruments"
+      }
+    ]
+  }
+}
