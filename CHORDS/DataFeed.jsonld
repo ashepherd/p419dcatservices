@@ -40,7 +40,7 @@
   "temporalCoverage": "2017-05-29 00:01:36/..",
   "spatialCoverage": { "@id": "http://portal.chordsrt.com/sites/2" },
   "about": {
-    "@type": "IndividualProduct",
+    "@type": "Thing",
     "additionalType": "https://www.w3.org/TR/vocab-ssn/#SensingDevice",
     "name": "Vaisala WXT510",
     "subjectOf": {
