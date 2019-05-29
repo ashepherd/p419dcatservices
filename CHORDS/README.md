@@ -44,7 +44,7 @@ URL: http://portal.chordsrt.com/
 * specifies this instrument is included in the DataCatalog at the Instruments listing page
 * defines the `temporalCoverage` as an open-ended duration starting from the first measurement date timestamp
 * defines the `spatialCoverage` as the corresponding Site
-* specifies that it is `about` an IndividualProduct (Instrument) with an additionalType of `https://www.w3.org/TR/vocab-ssn/#SensingDevice` (To link in the SensorML document we specify that this Instrument is the subject of a DigitalDcoument (aka the SensorML file which has an `additionalType` for the Wikidata URI for `SensorML`)
+* specifies that it is `about` a Thing (Instrument) with an additionalType of `https://www.w3.org/TR/vocab-ssn/#SensingDevice` (To link in the SensorML document we specify that this Instrument is the subject of a DigitalDcoument (aka the SensorML file which has an `additionalType` for the Wikidata URI for `SensorML`)
 * defines the `measurementTechnique` as the name of the instrument (Note: measurmentTechnique should propobably be fixed or extended at geoschemas.org to reference an `Instrument` type.
 * defines all the `variablesMeasured` with units (code and text) and an identifier to the SensorML URI for that variable
 * defines 2 data download URLs (GeoJSON and CSV) 
