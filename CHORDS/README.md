@@ -63,3 +63,7 @@ There isn't a great way yet to talk about keywords or categories that are relate
 
 There isn't a great way to define an Instrument yet in schema.org, but some work is being done on that w/r/t IoT. Created GitHub [Issue #4](https://github.com/earthcubearchitecture-project418/p419dcatservices/issues/4)
 
+### Using `identifier` to link a `variableMeasured` to an external ontology ###
+
+Of all the fields on [PropertyValue](https://schema.org/PropertyValue), there isn't an obvious way to richly express a link to an external ontology class that classifies the type of variable. I use [identifier](https://schema.org/identifier) to link to another `PropertyValue`. *Question:* Should we discuss an extension property to specify this?
+
