@@ -9,7 +9,6 @@
     "@type": "Dataset",
     "additionalType": ["http://schema.geolink.org/1.0/base/main#Dataset", "http://vivoweb.org/ontology/core#Dataset"],
     "name": "Removal of organic carbon by natural bacterioplankton communities as a function of pCO2 from laboratory experiments between 2012 and 2016",
-    
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
@@ -19,6 +18,12 @@
           "description": "Download dataset sss 1234 based on the requested format, start/end dates and bounding box",
           "httpMethod": ["GET", "POST"]
       },
+      "result": {
+        "@type": "Dataset",
+        "url-output": "required",
+        "name-output": "required",
+        "description-output": "required"
+      },  
       "query-input": [
         {
           "@type": "PropertyValueSpecification",
