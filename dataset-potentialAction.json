@@ -1,10 +1,6 @@
 {
     "@context": {
-      "@vocab": "http://schema.org/",
-      "geolink": "http://schema.geolink.org/1.0/base/main#",
-      "vivo": "http://vivoweb.org/ontology/core#",
-      "earthcollab": "https://library.ucar.edu/earthcollab/schema#",
-      "geo-upper": "http://www.geoscienceontology.org/geo-upper#"
+      "@vocab": "http://schema.org/"
     },
     "@type": "Dataset",
     "additionalType": ["http://schema.geolink.org/1.0/base/main#Dataset", "http://vivoweb.org/ontology/core#Dataset"],
@@ -20,9 +16,11 @@
       },
       "result": {
         "@type": "Dataset",
-        "url-output": "required",
+        "description": "Datasets that have a name, description, URL, and at least one downloadable distribution",
         "name-output": "required",
-        "description-output": "required"
+        "description-output": "required",
+        "url-output": "required",
+        "distribution-output": "required"
       },  
       "query-input": [
         {
