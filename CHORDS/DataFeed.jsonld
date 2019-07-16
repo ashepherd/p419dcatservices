@@ -7,7 +7,12 @@
   "name": "FL Wx Station",
   "description": " Vaisala WXT510 weather station. See http://www.eol.ucar.edu/weather/weather_fl/station.html.",
   "url": "http://portal.chordsrt.com/instruments/1",
-  "identifier": "1",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "Internal ID",
+    "value":  "1",
+    "description": "An internal identifier for the instrument at portal.chordsrt.com"
+  },
   "isAccessibleForFree": true,
   "provider": { "@id": "http://portal.chordsrt.com/" },
   "includedInDataCatalog": { "@id": "http://portal.chordsrt.com/instruments" },
