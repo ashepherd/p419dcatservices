@@ -7,35 +7,9 @@
   "name": "FL Wx Station",
   "description": " Vaisala WXT510 weather station. See http://www.eol.ucar.edu/weather/weather_fl/station.html.",
   "url": "http://portal.chordsrt.com/instruments/1",
-  "identifier": "2",
+  "identifier": "1",
   "isAccessibleForFree": true,
-  "provider": {
-    "@type": "ResearchProject",
-    "@id": "http://portal.chordsrt.com/",
-    "makesOffer": {
-      "@type": "Offer",
-      "itemOffered": [
-        {
-      	  "@id": "http://portal.chordsrt.com/api/v1/data/1.csv",
-          "@type": "WebAPI",
-          "serviceType": "http://www.wikidata.org/entity/Q42722531",
-          "url": "http://portal.chordsrt.com/api/v1/data/1.csv",
-          "name": "REST API for CSV Data from FL Wx Station",
-          "documentation": "http://portal.chordsrt.com/about/data_urls?instrument_id=1",
-          "subjectOf": { "@id": "http://portal.chordsrt.com/instruments/1" }
-        },
-        {
-      	  "@id": "http://portal.chordsrt.com/api/v1/data/1.geojson",
-          "@type": "WebAPI",
-          "serviceType": "http://www.wikidata.org/entity/Q42722531",
-          "url": "http://portal.chordsrt.com/api/v1/data/1.geojson",
-          "name": "REST API for GeoJSON Data from FL Wx Station",
-          "documentation": "http://portal.chordsrt.com/about/data_urls?instrument_id=1",
-          "subjectOf": { "@id": "http://portal.chordsrt.com/instruments/1" }
-        }
-      ]
-    }
-  },
+  "provider": { "@id": "http://portal.chordsrt.com/" },
   "includedInDataCatalog": { "@id": "http://portal.chordsrt.com/instruments" },
   "temporalCoverage": "2017-05-29 00:01:36/..",
   "spatialCoverage": { "@id": "http://portal.chordsrt.com/sites/2" },
