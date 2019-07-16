@@ -123,12 +123,14 @@
   ],
   "distribution": [
     {
+      "@id": "http://portal.chordsrt.com/api/v1/data/1.geojson",
       "@type": "DataDownload",
       "name": "GeoJSON",
       "contentUrl": "http://portal.chordsrt.com/api/v1/data/1.geojson",
       "encodingFormat": "application/geo+json"
     },
     {
+      "@id": "http://portal.chordsrt.com/api/v1/data/1.csv",
       "@type": "DataDownload",
       "name": "GeoCSV",
       "contentUrl": "http://portal.chordsrt.com/api/v1/data/1.csv",
