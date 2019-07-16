@@ -15,12 +15,10 @@
           "httpMethod": ["GET", "POST"]
       },
       "result": {
-        "@type": "Dataset",
-        "description": "Datasets that have a name, description, URL, and at least one downloadable distribution",
-        "name-output": "required",
-        "description-output": "required",
-        "url-output": "required",
-        "distribution-output": "required"
+        "@type": "DataDownload",
+        "encodingFormat-output": "required",
+        "contentSize-output": "required",
+        "contentUrl-output": "required"
       },  
       "query-input": [
         {
