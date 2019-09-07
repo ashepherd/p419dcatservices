@@ -2,11 +2,9 @@
 
 ## Axioms
 
-1. publishing schema.org should be easy (Guha et al)
-2. the difficult work of should be the job of the harvester (Guha et al)
-3. primary audience for schema.org markup is harvesters
-4. the common denominator across search interfaces of most harvesters is a single text box (for harvester-specific DSL queries)
-5. a typical schema.org harvester should not be expected to understand other vocabularies outside of schema.org
+1. primary audience for schema.org markup is harvesters
+2. the common denominator across search interfaces of most harvesters is a single text box (for harvester-specific DSL queries)
+3. a typical schema.org harvester should not be expected to understand other vocabularies outside of schema.org
 
 ## Analysis of Axioms
 
