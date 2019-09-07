@@ -9,7 +9,7 @@
 ## Analysis of Axioms
 
 1. schema.org for Data Services should help harvesters find and understand how to present these services _as a search result_
-2. for deeper integrations from harvesters, schema.org for Data Services should help harvesters _pass along single text box query_ to the service
+2. for smart-handoffs from harvesters, schema.org for Data Services should help harvesters _pass along single text box query_ to the service
 3. to support pass thru service calls for [schema.org] class-specific searches (such as the Dataset class), the schema.org markup describing services must express:
     1. _the result set is specific to the schema.org class_ being searched (i.e. Dataset objects are being returned as search results from executing a service call)
     2. the response is formatted as _parseable schema.org_ (JSON-LD or HTML response, to support RDFa, microformats, etc.)
