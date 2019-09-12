@@ -16,14 +16,16 @@
 	  "description": "Download all instruments for past 24 hours.",
       "result": {
         "@type": "DataDownload",
-        "encodingFormat": ["application/json", "application/geo+json"]   #for better interoperability and targeting software applications, need a more granular specification of the encoding that defines the JSON key vocabulary and semantics, vocabularies used to populate property values, and conventions for syntax.
+        "encodingFormat": ["application/json", "application/geo+json"]   
+		#for better interoperability and targeting software applications, need a more granular specification of the encoding that defines the JSON key vocabulary and semantics, vocabularies used to populate property values, and conventions for syntax.
 		
       },
       "target": {
         "@type": "EntryPoint",
         "urlTemplate": "http://portal.chordsrt.com/api/v1/data.{encoding}",
         "httpMethod": "GET",
-		"contentType": ["application/json", "application/geo+json"]  #supported mime type of response; implication is that this would be use in http header?
+		"contentType": ["application/json", "application/geo+json"]  
+		#supported mime type of response; implication is that this would be use in http header?
       },
       "query-input": [
         {
@@ -33,6 +35,7 @@
           "description": "The encoding format of the data",
           "valueRequired": true,
           "valuePattern": "(''|geojson|json)"
+		  # how does the user know what the binding is between the parameter value here and the "encodingFormat" values on the "result" (above)
         }
       ],
       "object": {
@@ -90,12 +93,17 @@
           "valuePattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?"
         }
       ],
-      "object": {  #its not clear to me what the purpose of having these '-input' elements here is; see object is last entry above, where suggest that should describe the variableMeasured that are reported by the DataFeed
+      "object": {  
+	  #its not clear what is the purpose of having these '-input' elements here? The input parameters are specified on the URI template query-inputs, this seems redundant (and confusing)
         "@type": "DataFeed",
+		#encodingFormat is a property of DataFeed (inherited from CreativeWork)
         "encodingFormat-input": { "@id": "http://portal.chordsrt.com/about/data_urls#encoding" },
+		#identifier is a property of DataFeed (inherited from Thing)
         "identifier-input": { "@id": "http://portal.chordsrt.com/about/data_urls#instruments" },
 		#these are instrument identifiers, not identifiers for the DataFeed, seems like this would be confusing
-        "temporalCoverage-input": [ #not consistent with 'a textual string indicating a time period in ISO 8601 time interval format. '
+        #temporalCoverage is a property of DataFeed (inherited from CreativeWork)
+		"temporalCoverage-input": [ 
+		#not consistent with 'a textual string indicating a time period in ISO 8601 time interval format. '
           { "@id": "http://portal.chordsrt.com/about/data_urls#start" },
           { "@id": "http://portal.chordsrt.com/about/data_urls#end" }
         ]
@@ -117,7 +125,7 @@
       "query-input": [
         {
           "@type": "PropertyValueSpecification",
-          "valueName": "encoding",
+          "valueName": "encoding",  #this is the name of the parameter in the URI template
           "description": "The encoding format of the data",
           "valueRequired": true,
           "valuePattern": "(''|csv|geojson)"
@@ -135,10 +143,12 @@
           "valueRequired": false
         }
       ],
-      "object": {  #its not clear to me what the purpose of having these '-input' elements here is; see object is last entry above, where suggest that should describe the variableMeasured that are reported by the DataFeed
+      "object": {  
+	  #its not clear what is the purpose of having these '-input' elements here? The input parameters are specified on the URI template query-inputs, this seems redundant (and confusing)
         "@type": "DataFeed",
         "encodingFormat-input": { "@id": "http://portal.chordsrt.com/about/data_urls#encoding" },
-        "temporalCoverage-input": [ #not consistent with 'a textual string indicating a time period in ISO 8601 time interval format. '
+        "temporalCoverage-input": [ 
+		#not consistent with 'a textual string indicating a time period in ISO 8601 time interval format.'
           { "@id": "http://portal.chordsrt.com/about/data_urls#start" },
           { "@id": "http://portal.chordsrt.com/about/data_urls#end" }
         ]
