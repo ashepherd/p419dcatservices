@@ -1,0 +1,225 @@
+{
+	"@context": {
+		"@vocab": "http://schema.org/",
+		"ecrro:": "http://purl.obolibrary.org/obo/ECRRO#"
+	},
+	"@id": "http://portal.chordsrt.com/api/v1/data",
+	"@type": "WebAPI",
+	"serviceType": "ecrro:chordsapiv1",
+	"name": "Download data from NCAR EarthCube CHORDS",
+	"documentation": "http://portal.chordsrt.com/about/data_urls",
+	"description": "NOTE--THIS DOCUMENT INCLUDES COMMENTS PREFIXED BY #, SO IT ISN'T VALID JSON.  URL based API to access data from real time instruments and sensors; A specification for the API could not be found, but examples at the documentation link above can be reverse engineers without too much trouble. This document describes a particular service instance",
+	"potentialAction": [
+	{
+			"@type": "SearchAction",
+			"name": "Download Multiple Instrument Data: all instruments",
+			"description": "Download all instruments for past 24 hours.",
+			"result": {
+				"@type": "DataDownload",
+				"encodingFormat": ["application/json", "application/geo+json"],
+				"description":"for better interoperability and targeting software applications,	need a more granular specification of the encoding that defines the JSON key vocabulary and semantics,vocabularies used to populate property values, and conventions for syntax."
+			},
+			"target": {
+				"@type": "EntryPoint",
+				"urlTemplate": "http://portal.chordsrt.com/api/v1/data{encoding}",
+				"httpMethod": "GET",
+				"contentType": ["application/json", "application/geo+json"],
+				"description": "supported mime type of response; implication is that this would be use in http header?",
+				"urlTemplate-input": {
+					"@id": "http://portal.chordsrt.com/about/data_urls#encoding",
+					"@type": "PropertyValueSpecification",
+					"valueName": "encoding",
+					"description": "The encoding format of the data",
+					"valueRequired": false,
+					"defaultValue": "json",
+					"valueOptions": [{
+							"@Type": "PropertyValue",
+							"value": ".json",
+							"description": "return results in json format; contentType application/json"
+						}, {
+							"@Type": "PropertyValue",
+							"value": ".geojson",
+							"description": "return results in geojson format; contentType application/geo+json"
+						}
+					]
+				}
+			},
+			"object": {
+				"@type": "DataFeed",
+				"@id": "http://portal.chordsrt.com/about/data_type/4326",
+				"dataFeedElement":"Feature",
+				"description": "The service resource is a Feature, at which one or more instruments is located; each instrument might host one or more sensors. Most features are sites with a point location.",
+				"variableMeasured":  [
+                    {
+                        "@type": "PropertyValue",
+                        "name": "site",
+                        "description": "Name of the site from which the data are reported",
+                        "propertyID": "http://sensorml.com/ont/swe/property/Site",
+
+                    },
+					{
+                        "@type": "PropertyValue",
+                        "name": "instrument",
+                        "description": "Name of the instrument reporting data",
+                        "propertyID": "http://sensorml.com/ont/swe/property/Instrument",
+
+                    },
+					{
+                        "@type": "PropertyValue",
+                        "alternateName": ["wdir","Wind Direction"],
+                        "name": "Wind Direction Angle",
+                        "description": "The angle from which the wind is blowing, clockwise from north (e.g. 270 is wind from west). measured_property_source: SensorML, units_type: Angle, units_source: CUAHSI",
+                        "propertyID": "http://sensorml.com/ont/swe/property/WindDirectionAngle",
+                        "unitText": "degree",
+                        "unitCode": "deg"
+                    },
+                    {
+                        "@type": "PropertyValue",
+						"alternateName": ["Wind Speed", "wspd"],
+                        "name": "Wind Speed",
+                        "description": "The rate at which air is moving horizontally past a given point. measured_property_source: SensorML units_type: velocity, units_source: CUAHSI",
+                        "propertyID": "http://sensorml.com/ont/swe/property/WindSpeed",
+                        "unitText": "meters per second",
+                        "unitCode": "m/s"                       
+                    },
+                    {
+                        "@type": "PropertyValue",
+						"alternateNname": ["Wind Max","wmax"],
+                        "name": "Wind Speed, maximum",
+                        "description": "The rate at which air is moving horizontally past a given point.  measured_property_source: SensorML units_type: velocity, units_source: CUAHSI",
+                        "propertyID": "http://sensorml.com/ont/swe/property/WindSpeed",
+                        "unitText": "meters per second",
+                        "unitCode": "m/s"
+                    },
+                    {
+                        "@type": "PropertyValue",
+						"name": "Temperature",
+                        "alternateName": "tdry",
+                        "measured_property": "Temperature",
+                        "description": "Intensity of heat as measured on a definite scale. measured_property_source: SensorML units_type: Temperature, units_source: CUAHSI",
+                        "propertyID": "http://sensorml.com/ont/swe/property/Temperature",
+                        "unitText": "degree celsius",
+                        "unitCode": "degC"
+                    },
+                    {
+                        "@type": "PropertyValue",
+						"name": "Humidity",
+                        "alternateName": "rh",
+                        "measured_property": "Humidity Value",
+                        "description": "The amount of water vapor in the atmosphere. measured_property_source: SensorML, units_type: dimensionless, units_source: CUAHSI",
+                        "propertyID": "http://sensorml.com/ont/swe/property/HumidityValue",
+                        "unitText": "percent",
+                        "unitCode": "%"
+                    },
+                    {
+                        "@type": "PropertyValue",
+						"alternateName": ["Pressure", "pres"],
+                        "name": "Air Pressure Value",
+                        "description": "The cumulative force exerted on any surface by the molecules composing air. measured_property_source: SensorML, units_type: Pressure/Stress, units_source: CUAHSI",
+                        "propertyID": "http://sensorml.com/ont/swe/property/AirPressureValue",
+                        "unitText": "millibar",
+                        "unitCode": "mbar"
+                    },
+                    {
+                        "@type": "PropertyValue",
+						"alternateName": ["Rain Total","raintot"],
+                        "Name": "Precipitation",
+                        "description": "Any form of water particles-liquid or solid-that falls from the atmosphere and reaches the ground. measured_property_source: SensorML, units_type: Length, units_source: CUAHSI",
+                        "propertyID": "http://sensorml.com/ont/swe/property/Precipitation",
+                        "unitText": "millimeter",
+                        "unitCode": "mm"
+                    },
+                    {
+                        "@type": "PropertyValue",
+						"alternateName": ["Battery", "batv"],
+                        "measured_property": "Voltage",
+                        "description": "Battery voltage level. measured_property_source: SensorML, units_type: Potential Difference, units_source: CUAHSI",
+                        "propertyID": "http://sensorml.com/ont/swe/property/Voltage",
+                        "unitText": "Volts",
+                        "unitCode": "V"
+                    }
+                ]
+				
+			}
+		}, 
+		{
+			"@type": "SearchAction",
+			"name": "Get data acquired from multiple instruments for date range",
+			"description": "Download multiple instruments w/ instrument ids bounded by an optional start and/or end date",
+			"result": {
+				"@type": "DataDownload",
+				"encodingFormat": ["application/json", "application/geo+json"]
+			},
+			"target": {
+				"@type": "EntryPoint",
+				"urlTemplate": "http://portal.chordsrt.com/api/v1/data{encoding}?instruments={instruments}&start={start}&end={end}",
+				"httpMethod": "GET",
+				"urlTemplate-input": [
+					{
+					"@id": "http://portal.chordsrt.com/about/data_urls#encoding"
+					}, 
+					{
+					"@id": "http://portal.chordsrt.com/about/data_urls#instruments",
+					"@type": "PropertyValueSpecification",
+					"valueName": "instruments",
+					"description": "A comma-separated list of instrument identifiers. Instrument identifiers for this end point are integers between 1 and 6",
+					"minValue": 1,
+					"maxValue": 6,
+					"valueRequired": true,
+					"multipleValues":true
+					}, 
+					{
+					"@id": "http://portal.chordsrt.com/about/data_urls#start",
+					"@type": "PropertyValueSpecification",
+					"valueName": "start",
+					"description": "A start time for the returned measurements. use xsd:dateTime format",
+					"valueRequired": false,
+					"valuePattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?"
+					}, 
+					{
+					"@id": "http://portal.chordsrt.com/about/data_urls#end",
+					"@type": "PropertyValueSpecification",
+					"valueName": "end",
+					"description": "An end time for the returned measurements. use xsd:dateTime format",
+					"valueRequired": false,
+					"valuePattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?"
+					}
+				]
+			}, 
+			"object": {
+				"@id": "http://portal.chordsrt.com/about/data_type/4326"
+			}
+		}, {
+			"@type": "SearchAction",
+			"name": "Download Single Instrument Data",
+			"description": "data from a single instrument with an optional start and/or end date",
+			"result": {
+				"@type": "DataDownload",
+				"encodingFormat": ["GeoCSV2.0", "application/geo+json"],
+				"description": "For better interoperability and targeting software applications, need a more granular specification of the encoding that defines the JSON key vocabulary and semantics,	vocabularies used to populate property values, and conventions for syntax."
+			},
+			"target": {
+				"@type": "EntryPoint",
+				"urlTemplate": "http://portal.chordsrt.com/api/v1/data/{instrumentID}{encoding}?start={start}&end={end}&last",
+				"httpMethod": "GET",
+				"urlTemplate-input": [{
+						"@id": "http://portal.chordsrt.com/about/data_urls#encoding",
+					}, {
+						"@id": "http://portal.chordsrt.com/about/data_urls#start"
+					}, {
+						"@id": "http://portal.chordsrt.com/about/data_urls#end"
+					}, {
+						"@type": "PropertyValueSpecification",
+						"valueName": "last",
+						"description": "optional property, if used, start and end are ignored. Simply include the parameter with no value to indicate that the most recent value(s) from the instrument should be reported",
+						"valueRequired": false,
+						"defaultValue":""
+					}
+				]
+				},
+			"object": {
+				"@id": "http://portal.chordsrt.com/about/data_type/4326"
+				}
+		}
+	]
+}

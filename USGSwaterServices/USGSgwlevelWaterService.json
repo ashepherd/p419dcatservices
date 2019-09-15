@@ -5,11 +5,11 @@
   },
   "@id": "http://waterservices.usgs.gov/nwis/gwlevels",
   "@type": "WebAPI",
-  "serviceType": "",  #should reference an API specification in the EC resource registry
+  "serviceType": "URI for API specification in the EC resource registry",  
   "name": "USGS Groundwater Levels Web Service",
   "documentation": "https://waterservices.usgs.gov/rest/GW-Levels-Service.html",
   "isRelatedTo": {
-	"@Type":"Service",
+	"@type":"Service",
 	"name":"notifications service",
 	"description":"receive an announcement when changes are made to this web service, or if it there are significant problems with the service",
 	"url":"http://waterdata.usgs.gov/nwis/subscribe?form=email"
@@ -22,22 +22,16 @@
 	  "description": "return groundwater level data from wells specified by site identifier, state, county, huc, or a geographic bounding box. One of those must be specified in requests. Other request parameters are optional.",
       "result": {
         "@type": "DataDownload",
-        "encodingFormat": ["waterml{,1.2}", "waterml{,2.0}", "rdb{,1.0}", "json{,1.2}"]   
-		#for better interoperability and targeting software applications, need a more granular specification of the encoding that defines the JSON key vocabulary and semantics, vocabularies used to populate property values, and conventions for syntax.
-		
+        "encodingFormat": ["waterml{,1.2}", "waterml{,2.0}", "rdb{,1.0}", "json{,1.2}"],   
+		"description": "for better interoperability and targeting software applications, need a more granular specification of the encoding that defines the JSON key vocabulary and semantics, vocabularies used to populate property values, and conventions for syntax."		
       },
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "http://waterservices.usgs.gov/nwis/gwlevels?sites={site*}& stateCd={stateCD}&huc={huc}&bBox={bBox}&countyCd={countyCD}&startDt={startDt}&endDt={endDt}& period={period}&format={format}&parameterCd={parameterCd}"
-
-		"description":"The order of the URL arguments does not matter. If a URL argument name does not match one of the names below, a HTTP 400 error is triggered. URL argument names and URL argument values can be in upper, lower or mixed case. They will all be handled correctly." 
+        "urlTemplate": "http://waterservices.usgs.gov/nwis/gwlevels?sites={site*}& stateCd={stateCD}&huc={huc}&bBox={bBox}&countyCd={countyCD}&startDt={startDt}&endDt={endDt}& period={period}&format={format}&parameterCd={parameterCd}",
+		"description":"The order of the URL arguments does not matter. If a URL argument name does not match one of the names below, a HTTP 400 error is triggered. URL argument names and URL argument values can be in upper, lower or mixed case. They will all be handled correctly." ,
         "httpMethod": "GET",
-		#supported mime type of response; implication is that this would be use in http header?
 		"contentType": ["application/gml+xml", "text/tsv", "application/json"],
-		"encodingFormat":["waterml{,1.2}", "waterml{,2.0}", "rdb{,1.0}", "json{,1.2}"]
-
-      },
-      "query-input": [
+      "urlTemplate-input": [
         {
           "@id": "http://waterservices.usgs.gov/nwis/gwlevels#site",
           "@type": "PropertyValueSpecification",
@@ -98,7 +92,6 @@
           "description": "Get a range of groundwater levels from now. Period must be in ISO-8601 Duration format. Data are always returned up to the most recent groundwater level if it falls within the requested period range.",
           "valueRequired": true,
           "valuePattern": ""
-		  
         },
         {
           "@id": "http://waterservices.usgs.gov/nwis/gwlevels#format",
@@ -109,25 +102,26 @@
 		  "defaultValue":"waterml",
 		  "valueOptions":  [
 		  {
-			"@Type":"PropertyValue", 
+			"@type":"PropertyValue", 
 			"value":"waterml",
 			"description":" (default) is WaterML 1.2 (http://his.cuahsi.org/wofws.html), an XML schema published by the CUAHSI. Note: the current version of WaterML is 1.1. 1.2 contains a slight modification by the USGS needed to accommodate the discrete data provided by this service, and is referenced in a USGS name space."
 		  },
 		  {
-			"@Type":"PropertyValue", 
+			"@type":"PropertyValue", 
 			"value":"waterml,2.0",
 			"description":"an XML schema (http://waterml2.org/) published by the OpenGeospatial Consortium."
 		  },
 		  {
-			"@Type":"PropertyValue", 
+			"@type":"PropertyValue", 
 			"value":"rdb",
 			"description":"a self-describing tab-delimited format, documented in a PDF file (http://pubs.usgs.gov/of/2003/ofr03123/6.4rdb_format.pdf)"
 		  },
 		  {
-			"@Type":"PropertyValue", 
+			"@type":"PropertyValue", 
 			"value":"json",
 			"description":"The current version of WaterML will be rendered in a JSON structure as a set of name/value pairs. JSON is excellent for Web 2.0 applications. However, use JSON with caution as name/value pairs will change automatically when the default version of WaterML is upgraded. Note: json is returned with an application/json MIME type which generally has the effect in a browser of being prompted to download and save a file."
 		  }
+		  ]
         },
 		{
           "@id": "http://waterservices.usgs.gov/nwis/gwlevels#site",
@@ -139,70 +133,72 @@
 		  "multipleValues": true,
           "valueOptions": [
 		  {
-			"@Type":"PropertyValue", 
+			"@type":"PropertyValue", 
 			"value":"00000",
 			"description":"No measurement was taken"
 		  },
 		  {
-			"@Type":"PropertyValue", 
+			"@type":"PropertyValue", 
 			"value":"62610",
 			"description":"Groundwater level above NGVD 1929, feet"
 		  },
 		  {
-			"@Type":"PropertyValue", 
+			"@type":"PropertyValue", 
 			"value":"62611 ",
 			"description":"Groundwater level above NAVD 1988, feet"
 		  },
 		  {
-			"@Type":"PropertyValue", 
+			"@type":"PropertyValue", 
 			"value":"72019 ",
 			"description":"Depth to water level, feet below land surface"
 		  },
 		  {
-			"@Type":"PropertyValue", 
+			"@type":"PropertyValue", 
 			"value":"72020 ",
 			"description":"Elevation above NGVD 1929, feet"
 		  },
 		  {
-			"@Type":"PropertyValue", 
+			"@type":"PropertyValue", 
 			"value":"72150 ",
 			"description":"Groundwater level relative to Mean Sea Level (MSL), feet"
 		  },
 		  {
-			"@Type":"PropertyValue", 
+			"@type":"PropertyValue", 
 			"value":"72226 ",
 			"description":"Groundwater level above American Samoa Datum of 1962 (retired in 2001), feet"
 		  },
 		  {
-			"@Type":"PropertyValue", 
+			"@type":"PropertyValue", 
 			"value":"72227 ",
 			"description":"Groundwater level above American Samoa Vertical Datum of 2002, feet"
 		  },
 		  {
-			"@Type":"PropertyValue", 
+			"@type":"PropertyValue", 
 			"value":"72228 ",
 			"description":"Groundwater level above Guam Vertical Datum of 1963 (retired in 2003), feet"
 		  },
 		  {
-			"@Type":"PropertyValue", 
+			"@type":"PropertyValue", 
 			"value":"72229 ",
 			"description":"Groundwater level above Guam Vertical Datum of 2004, feet"
 		  },
 		  {
-			"@Type":"PropertyValue", 
+			"@type":"PropertyValue", 
 			"value":"72230 ",
 			"description":"Groundwater level above Local Hawaiian Datum, feet"
 		  },
 		  {
-			"@Type":"PropertyValue", 
+			"@type":"PropertyValue", 
 			"value":"72231",
 			"description":"Groundwater level above Northern Marianas Vertical Datum of 2003, feet"
 		  }
 		  ]
         }		
-      ],
+      ]
+	  },
       "object": {
-        "@type": "DataFeed",  
+        "@type": "DataFeed", 
+		"name":"USGS groundwater lavel report data type",
 		"description":"a listing of the properties of the target resource (a groundwater monitoring observation in this case). The 'result' key in this document (above) has tokens in the encodingFormat list that convey the interchange formats, but the 'DataDownload' object does not have a 'variableMeasured' property",
 		"variableMeasured": [
 		{
@@ -286,4 +282,5 @@
       }
     }
   ]
-}
+ }
+
