@@ -32,6 +32,7 @@
 
 [schema:WebAPI](https://schema.org/WebAPI) extends the generic [schema:Service](https://schema.org/Service) by adding a single field [schema:documentation](https://schema.org/documentation) which links the 'Service' of the API to its documentation - either a [schema:CreativeWork](https://schema.org/CreativeWork) or a simple URL.
 
+### WebAPI documentation as a URL:
 <pre>
 {
   "@context": "http://schema.org/",
@@ -46,3 +47,48 @@
   }
 }
 </pre>
+
+### WebAPI documentation as a CreativeWork (example: OpenSearch API): 
+<pre>
+{
+  "@context": "http://schema.org/",
+  "@type": "WebAPI",
+  "name": "Open Search API for Example Repository",
+  "description": "The Open Search API lets you find entities in the Data Catalog of the Example Repository.",
+  <strong>"documentation": {
+    "@type": "HowTo",
+    "additionalType": "http://www.wikidata.org/entity/Q1294021",
+    "name": "Open Search API for Example Repository Data Catalog"
+  },</strong>
+  "provider": {
+    "@id": "https://www.example-repository.org",
+    "@type": "Organization",
+    "name": "Example Repository"
+  }
+}
+</pre>
+
+For being more explicit about the type of [schema:documentation](https://schema.org/documentation), see the [sub types of a schema:CreativeWork](https://schema.org/CreativeWork#subtypes). Notable types: [Article](https://schema.org/Article), [DigitalDocument](https://schema.org/DigitalDocument), [HowTo](https://schema.org/HowTo), [WebPage](https://schema.org/WebPage), etc.
+
+### Wikidata API types 
+
+Note inn the above CreativeWork example, we specify the *type* of WebAPI by using the [schema:additionalType](https://schema.org/additionalType) field.
+
+SPARQL endpoint - http://www.wikidata.org/entity/Q26261192
+CSW - http://www.wikidata.org/entity/Q661823
+OAI-PMH - http://www.wikidata.org/entity/Q2430433
+JSON API - http://www.wikidata.org/entity/Q28758133
+OpenSearch - http://www.wikidata.org/entity/Q1294021
+Apache SOLR - http://www.wikidata.org/entity/Q2858103
+WMS - http://www.wikidata.org/entity/Q974922
+WFS - http://www.wikidata.org/entity/Q2296308
+GeoNetwork - http://www.wikidata.org/entity/Q477787
+GeoServer - http://www.wikidata.org/entity/Q1502779
+OPeNDAP - http://www.wikidata.org/entity/Q7072878
+
+*Is an API type missing from this list?*
+1. Check Wikidata:
+    <form method="get" action="https://www.wikidata.org/w/index.php">
+    <input type="text" name="search"/>
+    </form>
+2. If no type at Wikidata, [create it](https://www.wikidata.org/wiki/Special:NewItem)
