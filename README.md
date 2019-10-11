@@ -74,21 +74,19 @@ For being more explicit about the type of [schema:documentation](https://schema.
 
 Note inn the above CreativeWork example, we specify the *type* of WebAPI by using the [schema:additionalType](https://schema.org/additionalType) field.
 
-SPARQL endpoint - http://www.wikidata.org/entity/Q26261192
-CSW - http://www.wikidata.org/entity/Q661823
-OAI-PMH - http://www.wikidata.org/entity/Q2430433
-JSON API - http://www.wikidata.org/entity/Q28758133
-OpenSearch - http://www.wikidata.org/entity/Q1294021
-Apache SOLR - http://www.wikidata.org/entity/Q2858103
-WMS - http://www.wikidata.org/entity/Q974922
-WFS - http://www.wikidata.org/entity/Q2296308
-GeoNetwork - http://www.wikidata.org/entity/Q477787
-GeoServer - http://www.wikidata.org/entity/Q1502779
-OPeNDAP - http://www.wikidata.org/entity/Q7072878
+* SPARQL endpoint - http://www.wikidata.org/entity/Q26261192
+* CSW - http://www.wikidata.org/entity/Q661823
+* OAI-PMH - http://www.wikidata.org/entity/Q2430433
+* JSON API - http://www.wikidata.org/entity/Q28758133
+* OpenSearch - http://www.wikidata.org/entity/Q1294021
+* WMS - http://www.wikidata.org/entity/Q974922
+* WFS - http://www.wikidata.org/entity/Q2296308
+* GeoNetwork - http://www.wikidata.org/entity/Q477787
+* GeoServer - http://www.wikidata.org/entity/Q1502779
+* OPeNDAP - http://www.wikidata.org/entity/Q7072878
+* Apache SOLR - http://www.wikidata.org/entity/Q2858103
 
 *Is an API type missing from this list?*
-1. Check Wikidata:
-    <form method="get" action="https://www.wikidata.org/w/index.php">
-    <input type="text" name="search"/>
-    </form>
+1. Check Wikidata: [https://www.wikidata.org/w/index.php?search=](https://www.wikidata.org/w/index.php?search=)
+    
 2. If no type at Wikidata, [create it](https://www.wikidata.org/wiki/Special:NewItem)
