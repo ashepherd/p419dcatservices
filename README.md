@@ -48,22 +48,23 @@
 }
 </pre>
 
-### WebAPI documentation as a CreativeWork (example: OpenSearch API): 
+### WebAPI documentation as a CreativeWork (example: WMS 1.3 service): 
 <pre>
 {
   "@context": "http://schema.org/",
   "@type": "WebAPI",
-  "name": "Open Search API for Example Repository",
-  "description": "The Open Search API lets you find entities in the Data Catalog of the Example Repository.",
+  "name": "WMS 1.3 for Sample Data Repository",
+  "description": "The WMS 1.3 lets you find datasets in the Sample Data Repository.",
   <strong>"documentation": {
     "@type": "HowTo",
-    "additionalType": "http://www.wikidata.org/entity/Q1294021",
-    "name": "Open Search API for Example Repository Data Catalog"
+    "name": "WMS 1.3 for Example Repository Data Catalog",
+    "additionalType": "http://www.wikidata.org/entity/Q974922",
+    "schemaVersion": "1.3"
   },</strong>
   "provider": {
-    "@id": "https://www.example-repository.org",
+    "@id": "https://www.sample-repository.org",
     "@type": "Organization",
-    "name": "Example Repository"
+    "name": "Sample Data Repository"
   }
 }
 </pre>
@@ -72,7 +73,7 @@ For being more explicit about the type of [schema:documentation](https://schema.
 
 ### Wikidata API types 
 
-Note inn the above CreativeWork example, we specify the *type* of WebAPI by using the [schema:additionalType](https://schema.org/additionalType) field.
+In the above CreativeWork example, we specify the *type* of WebAPI by using the [schema:additionalType](https://schema.org/additionalType) field. One consideration for the types of WebAPIs is the version of the API that is being described.
 
 * SPARQL endpoint - http://www.wikidata.org/entity/Q26261192
 * CSW - http://www.wikidata.org/entity/Q661823
@@ -90,3 +91,7 @@ Note inn the above CreativeWork example, we specify the *type* of WebAPI by usin
 1. Check Wikidata: [https://www.wikidata.org/w/index.php?search=](https://www.wikidata.org/w/index.php?search=)
     
 2. If no type at Wikidata, [create it](https://www.wikidata.org/wiki/Special:NewItem)
+
+### API Type Versions
+
+In the example above, we are able to use the [schemaVersion](https://schema.org/schemaVersion) field of a CreativeWork to specify the exact version of the WebAPI type. NOTE: the [version](https:schema.org/version) field would let you specify the version of the documentation, where this [schemaVersion](https://schema.org/schemaVersion) field specifcally references the version of the schema behind the documentation.
