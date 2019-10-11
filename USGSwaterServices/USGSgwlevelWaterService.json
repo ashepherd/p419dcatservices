@@ -1,0 +1,286 @@
+{
+  "@context": {
+    "@vocab": "http://schema.org/",
+	"ecrro:":"http://purl.obolibrary.org/obo/ECRRO#"
+  },
+  "@id": "http://waterservices.usgs.gov/nwis/gwlevels",
+  "@type": "WebAPI",
+  "serviceType": "URI for API specification in the EC resource registry",  
+  "name": "USGS Groundwater Levels Web Service",
+  "documentation": "https://waterservices.usgs.gov/rest/GW-Levels-Service.html",
+  "isRelatedTo": {
+	"@type":"Service",
+	"name":"notifications service",
+	"description":"receive an announcement when changes are made to this web service, or if it there are significant problems with the service",
+	"url":"http://waterdata.usgs.gov/nwis/subscribe?form=email"
+  },
+  "description":"NOTE--THIS DOCUMENT INCLUDES COMMENTS PREFIXED BY #, SO IT ISN'T VALID JSON.  retrieve historical manually-recorded groundwater levels from hydrologic sites served by the USGS. The service can return information about one or more sites in one request",
+  "potentialAction": [
+    {
+      "@type": "SearchAction",
+      "name": "Get Groundwater Data",
+	  "description": "return groundwater level data from wells specified by site identifier, state, county, huc, or a geographic bounding box. One of those must be specified in requests. Other request parameters are optional.",
+      "result": {
+        "@type": "DataDownload",
+        "encodingFormat": ["waterml{,1.2}", "waterml{,2.0}", "rdb{,1.0}", "json{,1.2}"],   
+		"description": "for better interoperability and targeting software applications, need a more granular specification of the encoding that defines the JSON key vocabulary and semantics, vocabularies used to populate property values, and conventions for syntax."		
+      },
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "http://waterservices.usgs.gov/nwis/gwlevels?sites={site*}& stateCd={stateCD}&huc={huc}&bBox={bBox}&countyCd={countyCD}&startDt={startDt}&endDt={endDt}& period={period}&format={format}&parameterCd={parameterCd}",
+		"description":"The order of the URL arguments does not matter. If a URL argument name does not match one of the names below, a HTTP 400 error is triggered. URL argument names and URL argument values can be in upper, lower or mixed case. They will all be handled correctly." ,
+        "httpMethod": "GET",
+		"contentType": ["application/gml+xml", "text/tsv", "application/json"],
+      "urlTemplate-input": [
+        {
+          "@id": "http://waterservices.usgs.gov/nwis/gwlevels#site",
+          "@type": "PropertyValueSpecification",
+          "valueName": "site",
+          "description": "A list of site numbers. For this service, the site number needs to be a groundwater site number, which is typically 15 numeric characters. You can specify unlimited number of sites, up to the limit supported by the client, the application server and the HTTP GET protocol. Site numbers are comma separated. Sites may be prefixed with an optional agency code followed by a colon.",
+          "valueRequired": true	,
+		"multipleValues":true
+        },
+        {
+          "@id": "http://waterservices.usgs.gov/nwis/gwlevels#stateCD",
+          "@type": "PropertyValueSpecification",
+          "valueName": "stateCD",
+          "description": "U.S. postal service (2-digit) state code, see http://www.itl.nist.gov/fipspubs/fip5-2.htm",
+          "valueRequired": false
+        },
+        {
+          "@id": "http://waterservices.usgs.gov/nwis/gwlevels#huc",
+          "@type": "PropertyValueSpecification",
+          "valueName": "huc",
+          "description": "A list of hydrologic unit codes (HUC) or aggregated watersheds. Only 1 major HUC (2-digits) can be specified per request. Up to 10 minor HUCs may be specified. A major HUC has two digits. Minor HUCs must be eight digits in length. List of HUCs: http://water.usgs.gov/GIS/huc_name.html",
+          "valueRequired": false,
+		  "multipleValues":true
+        },
+        {
+          "@id": "http://waterservices.usgs.gov/nwis/gwlevels#bbox",
+          "@type": "PropertyValueSpecification",
+          "valueName": "bBox",
+          "description": "A contiguous range of decimal latitude and longitude, starting with the west longitude, then the south latitude, then the east longitude, and then the north latitude with each value separated by a comma. The product of the range of latitude and longitude cannot exceed 25 degrees. Whole or decimal degrees must be specified, up to six digits of precision. Minutes and seconds are not allowed. Remember: western longitude (which includes almost all of the United States) is specified in negative degrees. example: &bBox=-83,36.5,-81,38.5",
+          "valueRequired": true		  
+        },
+        {
+          "@id": "http://waterservices.usgs.gov/nwis/gwlevels#countyCD",
+          "@type": "PropertyValueSpecification",
+          "valueName": "countyCD",
+          "description": "A list of county numbers, in a 5 digit numeric format. The first two digits of a county's code are the FIPS State Code. List of county codes:http://help.waterdata.usgs.gov/code/county_query?fmt=html",
+          "valueRequired": false,
+          "multipleValues":true
+		  
+        },
+        {
+          "@id": "http://waterservices.usgs.gov/nwis/gwlevels#startdt",
+          "@type": "PropertyValueSpecification",
+          "valueName": "startDt",
+          "description": "Date of oldest measurement to be reported. ISO 8601 formatted date, Do not to be more precise than a day, since groundwater levels typically do not include the time of day measured. If startDT is supplied and endDT is not, endDT ends with the most recent groundwater level later than the startDt.  startDT must be chronologically before endDT",
+          "valueRequired": false
+        },
+        {
+          "@id": "http://waterservices.usgs.gov/nwis/gwlevels#enddt",
+          "@type": "PropertyValueSpecification",
+          "valueName": "endDt",
+          "description": "Date of youngest measurement to be reported. ISO 8601 formatted date, Do not to be more precise than a day, since groundwater levels typically do not include the time of day measured. If endDT is present, startDt must also be present. startDT must be chronologically before endDT",
+          "valueRequired": false		  
+        },
+        {
+          "@id": "http://waterservices.usgs.gov/nwis/gwlevels#period",
+          "@type": "PropertyValueSpecification",
+          "valueName": "period",
+          "description": "Get a range of groundwater levels from now. Period must be in ISO-8601 Duration format. Data are always returned up to the most recent groundwater level if it falls within the requested period range.",
+          "valueRequired": true,
+          "valuePattern": ""
+        },
+        {
+          "@id": "http://waterservices.usgs.gov/nwis/gwlevels#format",
+          "@type": "PropertyValueSpecification",
+          "valueName": "format",
+          "description": "Used to specify the output format of the data returned.",
+          "valueRequired": true,
+		  "defaultValue":"waterml",
+		  "valueOptions":  [
+		  {
+			"@type":"PropertyValue", 
+			"value":"waterml",
+			"description":" (default) is WaterML 1.2 (http://his.cuahsi.org/wofws.html), an XML schema published by the CUAHSI. Note: the current version of WaterML is 1.1. 1.2 contains a slight modification by the USGS needed to accommodate the discrete data provided by this service, and is referenced in a USGS name space."
+		  },
+		  {
+			"@type":"PropertyValue", 
+			"value":"waterml,2.0",
+			"description":"an XML schema (http://waterml2.org/) published by the OpenGeospatial Consortium."
+		  },
+		  {
+			"@type":"PropertyValue", 
+			"value":"rdb",
+			"description":"a self-describing tab-delimited format, documented in a PDF file (http://pubs.usgs.gov/of/2003/ofr03123/6.4rdb_format.pdf)"
+		  },
+		  {
+			"@type":"PropertyValue", 
+			"value":"json",
+			"description":"The current version of WaterML will be rendered in a JSON structure as a set of name/value pairs. JSON is excellent for Web 2.0 applications. However, use JSON with caution as name/value pairs will change automatically when the default version of WaterML is upgraded. Note: json is returned with an application/json MIME type which generally has the effect in a browser of being prompted to download and save a file."
+		  }
+		  ]
+        },
+		{
+          "@id": "http://waterservices.usgs.gov/nwis/gwlevels#site",
+          "@type": "PropertyValueSpecification",
+          "valueName": "parameterCd",
+          "description": "USGS groundwater level parameter codes. Note, using valueOptions here as proposed in https://github.com/schemaorg/schemaorg/issues/176, but schema.org hasn't adopted yet",
+		  "defaultValue": "	returns all groundwater parameters for the requested sites",
+          "valueRequired": false,
+		  "multipleValues": true,
+          "valueOptions": [
+		  {
+			"@type":"PropertyValue", 
+			"value":"00000",
+			"description":"No measurement was taken"
+		  },
+		  {
+			"@type":"PropertyValue", 
+			"value":"62610",
+			"description":"Groundwater level above NGVD 1929, feet"
+		  },
+		  {
+			"@type":"PropertyValue", 
+			"value":"62611 ",
+			"description":"Groundwater level above NAVD 1988, feet"
+		  },
+		  {
+			"@type":"PropertyValue", 
+			"value":"72019 ",
+			"description":"Depth to water level, feet below land surface"
+		  },
+		  {
+			"@type":"PropertyValue", 
+			"value":"72020 ",
+			"description":"Elevation above NGVD 1929, feet"
+		  },
+		  {
+			"@type":"PropertyValue", 
+			"value":"72150 ",
+			"description":"Groundwater level relative to Mean Sea Level (MSL), feet"
+		  },
+		  {
+			"@type":"PropertyValue", 
+			"value":"72226 ",
+			"description":"Groundwater level above American Samoa Datum of 1962 (retired in 2001), feet"
+		  },
+		  {
+			"@type":"PropertyValue", 
+			"value":"72227 ",
+			"description":"Groundwater level above American Samoa Vertical Datum of 2002, feet"
+		  },
+		  {
+			"@type":"PropertyValue", 
+			"value":"72228 ",
+			"description":"Groundwater level above Guam Vertical Datum of 1963 (retired in 2003), feet"
+		  },
+		  {
+			"@type":"PropertyValue", 
+			"value":"72229 ",
+			"description":"Groundwater level above Guam Vertical Datum of 2004, feet"
+		  },
+		  {
+			"@type":"PropertyValue", 
+			"value":"72230 ",
+			"description":"Groundwater level above Local Hawaiian Datum, feet"
+		  },
+		  {
+			"@type":"PropertyValue", 
+			"value":"72231",
+			"description":"Groundwater level above Northern Marianas Vertical Datum of 2003, feet"
+		  }
+		  ]
+        }		
+      ]
+	  },
+      "object": {
+        "@type": "DataFeed", 
+		"name":"USGS groundwater lavel report data type",
+		"description":"a listing of the properties of the target resource (a groundwater monitoring observation in this case). The 'result' key in this document (above) has tokens in the encodingFormat list that convey the interchange formats, but the 'DataDownload' object does not have a 'variableMeasured' property",
+		"variableMeasured": [
+		{
+			"@type":"PropertyValue",
+			"name":"site_no",
+			"description":"USGS site number",
+			"propertyID":"ideally we'd have URIs for these, referencing some ontology",
+			"measurementTechnique":""
+		},		
+		{
+			"@type":"PropertyValue",
+			"name":"site_tp_cd",
+			"description":"Site type code"
+		},		
+		{
+			"@type":"PropertyValue",
+			"name":"lev_dt",
+			"description":"Date level measured"
+		},		
+		{
+			"@type":"PropertyValue",
+			"name":"lev_tm",
+			"description":"time of day level measured, when known, using the 24-hour clock"
+		},		
+		{
+			"@type":"PropertyValue",
+			"name":"lev_tz_cd",
+			"description":"Time datum"
+		},		
+		{
+			"@type":"PropertyValue",
+			"name":"lev_va",
+			"description":"Water-level value in feet below land surface"
+		},		
+		{
+			"@type":"PropertyValue",
+			"name":"sl_lev_va",
+			"description":"Water-level value in feet above specific vertical datum"
+		},		
+		{
+			"@type":"PropertyValue",
+			"name":"sl_datum_cd",
+			"description":"Referenced vertical datum"
+		},		
+		{
+			"@type":"PropertyValue",
+			"name":"lev_status_cd",
+			"description":"Status"
+		},		
+		{
+			"@type":"PropertyValue",
+			"name":"lev_agency_cd",
+			"description":"Measuring agency code, e.g. USGS"
+		},		
+		{
+			"@type":"PropertyValue",
+			"name":"lev_dt_acy_cd",
+			"description":"Water-level date-time accuracy"
+		},		
+		{
+			"@type":"PropertyValue",
+			"name":"lev_acy_cd",
+			"description":"Water-level accuracy"
+		},		
+		{
+			"@type":"PropertyValue",
+			"name":"lev_src_cd",
+			"description":"Source of measurement"
+		},		
+		{
+			"@type":"PropertyValue",
+			"name":"lev_meth_cd",
+			"description":"Method of measurement"
+		},		
+		{
+			"@type":"PropertyValue",
+			"name":"lev_age_cd",
+			"description":"Water-level approval status"
+		}
+		]
+      }
+    }
+  ]
+ }
+
