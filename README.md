@@ -69,27 +69,27 @@
 }
 </pre>
 
-For being more explicit about the type of [schema:documentation](https://schema.org/documentation), see the [sub types of a schema:CreativeWork](https://schema.org/CreativeWork#subtypes). Notable types: [Article](https://schema.org/Article), [DigitalDocument](https://schema.org/DigitalDocument), [HowTo](https://schema.org/HowTo), [WebPage](https://schema.org/WebPage), etc.
+For being more explicit about the type of [schema:documentation](https://schema.org/documentation), see the [sub types of a schema:CreativeWork](https://schema.org/CreativeWork#subtypes). Notable types, each may lend itself as a better fit depending on the type of API documentation: [Article](https://schema.org/Article), [DigitalDocument](https://schema.org/DigitalDocument), [HowTo](https://schema.org/HowTo), [WebPage](https://schema.org/WebPage).
 
 ### Wikidata API types 
 
 In the above CreativeWork example, we specify the *type* of WebAPI by using the [schema:additionalType](https://schema.org/additionalType) field. One consideration for the types of WebAPIs is the version of the API that is being described.
 
-* SPARQL endpoint - http://www.wikidata.org/entity/Q26261192
+
 * CSW - http://www.wikidata.org/entity/Q661823
 * OAI-PMH - http://www.wikidata.org/entity/Q2430433
 * JSON API - http://www.wikidata.org/entity/Q28758133
 * OpenSearch - http://www.wikidata.org/entity/Q1294021
+* OPeNDAP - http://www.wikidata.org/entity/Q7072878
 * WMS - http://www.wikidata.org/entity/Q974922
 * WFS - http://www.wikidata.org/entity/Q2296308
+* SPARQL endpoint - http://www.wikidata.org/entity/Q26261192
 * GeoNetwork - http://www.wikidata.org/entity/Q477787
 * GeoServer - http://www.wikidata.org/entity/Q1502779
-* OPeNDAP - http://www.wikidata.org/entity/Q7072878
 * Apache SOLR - http://www.wikidata.org/entity/Q2858103
 
 *Is an API type missing from this list?*
-1. Check Wikidata: [https://www.wikidata.org/w/index.php?search=](https://www.wikidata.org/w/index.php?search=)
-    
+1. Check Wikidata: [https://www.wikidata.org/w/index.php?search=](https://www.wikidata.org/w/index.php?search=) 
 2. If no type at Wikidata, [create it](https://www.wikidata.org/wiki/Special:NewItem)
 
 ### API Type Versions
