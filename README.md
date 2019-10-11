@@ -25,3 +25,24 @@
 
 * [DCAT Version 2](https://w3c.github.io/dxwg/dcat/) (https://w3c.github.io/dxwg/dcat/)
 * [Machine Readable Web APIs with Schema.org Action Annotations](https://doi.org/10.1016/j.procs.2018.09.025) (https://doi.org/10.1016/j.procs.2018.09.025)
+
+# Guidance
+
+## Describing APIs
+
+[schema:WebAPI](https://schema.org/WebAPI) extends the generic [schema:Service](https://schema.org/Service) by adding a single field [schema:documentation](https://schema.org/documentation) which links the 'Service' of the API to its documentation - either a [schema:CreativeWork](https://schema.org/CreativeWork) or a simple URL.
+
+<pre>
+{
+  "@context": "http://schema.org/",
+  "@type": "WebAPI",
+  "name": "Google Knowledge Graph Search API",
+  "description": "The Knowledge Graph Search API lets you find entities in the Google Knowledge Graph. The API uses standard schema.org types and is compliant with the JSON-LD specification.",
+  <strong>"documentation": "https://developers.google.com/knowledge-graph/",</strong>
+  "termsOfService": "https://developers.google.com/knowledge-graph/terms",
+  "provider": {
+    "@type": "Organization",
+    "name": "Google Inc."
+  }
+}
+</pre>
