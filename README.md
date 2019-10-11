@@ -89,8 +89,8 @@ In the above CreativeWork example, we specify the *type* of WebAPI by using the 
 * Apache SOLR - http://www.wikidata.org/entity/Q2858103
 
 *Is an API type missing from this list?*
-1. Check Wikidata: [https://www.wikidata.org/w/index.php?search=](https://www.wikidata.org/w/index.php?search=) 
-2. If no type at Wikidata, [create it](https://www.wikidata.org/wiki/Special:NewItem)
+1. [Search Wikidata](https://www.wikidata.org/w/index.php?search=).
+2. If no type at Wikidata, [create it](https://www.wikidata.org/wiki/Special:NewItem).
 
 ### API Type Versions
 
