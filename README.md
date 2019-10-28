@@ -95,3 +95,7 @@ In the above CreativeWork example, we specify the *type* of WebAPI by using the 
 ### API Type Versions
 
 In the example above, we are able to use the [schemaVersion](https://schema.org/schemaVersion) field of a CreativeWork to specify the exact version of the WebAPI type. NOTE: the [version](https:schema.org/version) field would let you specify the version of the documentation, where this [schemaVersion](https://schema.org/schemaVersion) field specifcally references the version of the schema behind the documentation.
+
+## Describing actionable API endpoints
+
+See https://github.com/ESIPFed/science-on-schema.org/blob/master/guides/Dataset.md#accessing-data-through-a-service-endpoint
